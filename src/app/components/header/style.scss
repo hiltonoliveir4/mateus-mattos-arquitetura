@@ -1,0 +1,39 @@
+@import "../../constants.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px;
+  height: 72px;
+
+  @media (min-width: 768px) {
+    width: 768px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 1200px) {
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  nav {
+    display: flex;
+    gap: 16px;
+
+    a {
+      line-height: 125%;
+      text-decoration: none;
+      color: $color-primary;
+      text-align: center;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+}
