@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
 import ChevronRigthIcon from "../icons/chevron";
 import "./style.scss";
 
@@ -20,10 +23,41 @@ export default function Card({
   type,
   link,
 }: CardProps) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Função para verificar se o elemento está visível na tela
+  function isElementInViewport(el: Element | null): boolean {
+    if (!el) return false;
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  const handleScroll = useCallback(() => {
+    const imagem = document.querySelector(".card");
+
+    if (isElementInViewport(imagem)) {
+      setIsVisible(true);
+      window.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
+
   return (
     <div className={`card ${className}`}>
       <Image
-        className="image-card"
+        className={`image-card ${isVisible ? "animation" : ""}`}
         src={image}
         width={480}
         height={480}

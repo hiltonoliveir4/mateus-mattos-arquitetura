@@ -1,0 +1,33 @@
+.projects-type-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 32px 12px 44px 12px;
+  flex-wrap: wrap;
+  gap: 28px;
+
+  h2 {
+    font-size: 42px;
+    text-align: center;
+  }
+
+  @media (min-width: 980px) {
+    width: 960px;
+
+    flex-direction: row;
+    margin: 52px auto;
+    gap: 52px;
+    flex-wrap: wrap;
+    margin-top: 64px;
+
+    h2 {
+      width: 100%;
+      font-size: 42px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    width: 1200px;
+  }
+}

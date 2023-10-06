@@ -1,30 +1,21 @@
 @import "../../constants.scss";
 
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 12px;
   height: 72px;
 
-  @media (min-width: 768px) {
-    width: 768px;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 1200px) {
-    width: 1200px;
-    margin: 0 auto;
-  }
-
-  svg {
-    width: 34px;
-    height: 34px;
+  .menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   nav {
-    display: flex;
-    gap: 16px;
+    display: none;
 
     a {
       line-height: 125%;
@@ -35,5 +26,41 @@
       font-style: normal;
       font-weight: 400;
     }
+  }
+
+  .opened-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 72px;
+    right: 0;
+    background-color: $bg-primary;
+    width: 100%;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  @media (min-width: 768px) {
+    width: 768px;
+    margin: 0 auto;
+
+    .menu-button {
+      display: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  svg {
+    width: 34px;
+    height: 34px;
   }
 }

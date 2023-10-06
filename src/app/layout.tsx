@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
+import Header from "./components/header";
 import "./globals.scss";
 
 const jost = Jost({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={jost.className}>
+        <Header />
         <div className="background-lines">
           <div className="line"></div>
           <div className="line"></div>
