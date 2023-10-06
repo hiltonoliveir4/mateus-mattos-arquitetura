@@ -1,7 +1,7 @@
 @import "../../constants.scss";
 
 .banner {
-  background-image: url("/images/banner.png");
+  background-image: url("/images/banner.jpg");
   height: 300px;
   display: flex;
   align-items: center;
@@ -17,6 +17,7 @@
     width: 100%;
 
     .title-banner {
+      color: $color-secondary;
       font-size: 30px;
       font-weight: 700;
       line-height: 100%;
@@ -24,6 +25,7 @@
     }
 
     .description-banner {
+      color: $color-secondary;
       font-size: 16px;
       font-weight: 400;
       line-height: 100%;
